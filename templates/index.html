@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Helper and Searcher</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/LOOKS.css') }}">
+</head>
+
+<body>
+    <div id="overlay">
+        <div id="overlay-content">
+            <h1 id="cartgenie-title">
+                <span>Flipcart Solution for Problem No. 2</span>
+            </h1>
+            <div id="instructions">
+                <p>1. Shop with ease by talking to our AI assistant.</p>
+                <p>2. Search for items by starting with "search for" followed by the item name.</p>
+                <p>3. To send audio input, hold down 'v', it wont work if you are typing in text input</p>
+                <p>  &nbsp;&nbsp;&nbsp; Click outside the text area to speak</p>
+                <p>4. Enjoy a seamless shopping experience!</p>
+                <font color="green"><p>Note: Open-source server.........<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;100% locally hosted. Expect initial latency on first messages and voice input <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; due to cold start of LLM and TTS/STT models.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please disregard initial delays.</p></font>
+            </div>
+            <button id="continue-btn" onclick="clearContext()">Continue</button>
+        </div>
+    </div>
+
+    <div id="chat-container">
+        <div class="message helper-message">
+            <h3>Hi, Welcome to AI Seller...</h3>
+<ol>
+<li><p><strong>Shop with ease by talking to our AI assistant.</strong></p>
+</li>
+<li><p><strong>Search for items</strong> by speaking/typing with &quot;search for&quot; followed by the item name.</p>
+</li>
+<li><p>To <strong>send audio input</strong>, hold down <code>&#39;v&#39;</code>. It won&#39;t work if you are typing in the text input.</p>
+<ul>
+<li>Hint: Click outside the text input area to use mic</li>
+</ul>
+</li>
+<li><p><strong>Enjoy a seamless shopping experience!</strong></p>
+</li>
+<li><p><strong>You can ask to put a item in cart, and proceed to checkout</strong></p>
+</li>
+</ol>
+        </div>
+    </div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="clearContext()">Clear</button>
+        <button onclick="previewItems()">Look In Detail</button>
+        <div id="recordingStatus">🔴</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='JS/UI_interact.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/STT.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/TTS.js') }}"></script>
+</body>
+
+</html>

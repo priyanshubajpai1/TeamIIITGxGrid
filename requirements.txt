@@ -1,0 +1,15 @@
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-WTF
+Flask-Login
+Flask-Mail
+Flask-Bootstrap
+python-dotenv
+gunicorn
+ollama
+sentence-transformers
+flask-sse
+faster-whisper
+mysql-connector-python
+whisper
